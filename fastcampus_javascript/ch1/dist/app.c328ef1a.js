@@ -118,22 +118,50 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"app.js":[function(require,module,exports) {
+var container = document.getElementById('root');
 var ajax = new XMLHttpRequest();
+var content = document.createElement('div');
 var NEWS_URL = 'https://api.hnpwa.com/v0/news/1.json';
+var CONTENT_URL = 'https://api.hnpwa.com/v0/item/@id.json';
 //false는 동기적으로 가져온다는 의미
-ajax.open('GET', NEWS_URL, false);
-ajax.send();
-// console.log(ajax.response);
 
-var newsFeed = JSON.parse(ajax.response);
-// console.log(newsFeed);
-var ul = document.createElement('ul');
-for (var i = 0; i < 10; i++) {
-  var li = document.createElement('li');
-  li.innerHTML = newsFeed[i].title;
-  ul.appendChild(li);
+/**
+ * ajax Get Data
+ * @param {} url 
+ * @returns 
+ */
+function getData(url) {
+  ajax.open('GET', url, false);
+  ajax.send();
+  return JSON.parse(ajax.response);
 }
-document.getElementById("root").appendChild(ul);
+function newsFeed() {
+  var newsFeed = getData(NEWS_URL);
+  var newsList = [];
+  newsList.push('<ul>');
+  for (var i = 0; i < 10; i++) {
+    newsList.push("\n            <li>\n                <a href=\"#".concat(newsFeed[i].id, "\">\n                ").concat(newsFeed[i].title, " (").concat(newsFeed[i].comments_count, ")\n                </a>\n            </li>\n        "));
+  }
+  newsList.push('</ul>');
+  container.innerHTML = newsList.join('');
+}
+function newsDetail() {
+  //location == 주소와 관련된 객체
+  var id = location.hash.substring(1);
+  var newsContent = getData(CONTENT_URL.replace('@id', id));
+  container.innerHTML = "\n        <h1>".concat(newsContent.title, "</h1>\n\n        <div>\n            <a href=\"#\">\uBAA9\uB85D</a>\n        </div>\n    ");
+}
+function router() {
+  var routePath = location.hash;
+  if (routePath === '') {
+    newsFeed();
+  } else {
+    newsDetail();
+  }
+}
+window.addEventListener('hashchange', router);
+router();
+//코드가 dom api를 이용해 진행되고 있다. 하지만 html 코드와는 다르게 가독성이 매우 떨어진다는 것이 문제
 },{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -159,7 +187,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49547" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65002" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
