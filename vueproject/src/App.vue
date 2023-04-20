@@ -1,16 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <h1>Hello {{ name }}</h1>
+  <div>{{ frameworks }}</div>
+  <ul>
+    <li v-for="frame in frameworks" v-bind:key="frame">{{ frame }}</li>
+  </ul>
+  <!-- 데이터양방향 바인딩 -->
+  <input type="text" v-model="name">
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+  },
+  data() {
+    return {
+      name: 'Mo-Greene',
+      frameworks: [
+        "React",
+        "Vue",
+        "Angular"
+      ]
+    }
+  },
 }
 </script>
 
