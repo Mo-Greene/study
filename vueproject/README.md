@@ -1,32 +1,46 @@
-# FrontEnd
-- 디자인된 내용을 화면을 통해 구현
-- UI, 데이터 처리 및 상태관리
+# Vue.js 문법
 
-<br>
+## v-text
+```
+<template>
+    <div>{{ username }} 입니다!</div>
+    <div v-text="`${username} 입니다.`"></div>
+</template>
 
-# babel.config.js
-- 코드를 변환시킴 과거의 코드형태로 바꿔주는 것 'browserslist'에서 활용
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      username: "Mo-Greene"
+    }
+  }
+};
+</script>
+```
+v-text와 머스태치문법은 비슷하지만 머스태치문법이 많이 사용된다. 그 이유는 v-text로 문자열과 같이 나타내려면 복잡한 과정이 있기 때문에
+***
+## v-html
+```
+<template>
+  <div>
+    <p>{{ button }}</p>
+    <p v-html="button"></p>
+  </div>
+</template>
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      button: "<button>click!</button>",
+    }
+  }
+};
+</script>
+```
+머스태치 문법으로 html태그를 나타내면 문자열로 나타난다.  
+그럴땐 v-html 태그를 사용해서 표현하자  
 
-<br>
-
-# package.json
-- ## scripts
-    명령어를 설정할 수 있음
-- ## dependencies
-    노드modules에 저장된 파일들을 관리할때 사용 의존성
-- ## devDependencies
-    개발할때 사용하는 의존성 실제 서비스될때 사용하지 않음
-- ## eslint
-    코드 리펙토링
-- ## browserslist
-    지원되지 않는 브라우저들을 어디까지 다운그레이드할것인지
-
-<br>
-
-# package.lock.json
-- package.json에서 버전관리할때 업그레이드시 변경되지 않는 것들을 fix해놓음
-
-<br>
-
-# public
-- public안에 있는 index.html안에 모든 코드가 들어가게 되는것
+** v-html을 사용할땐 주의  
+신뢰하는 코드만을 사용해야된다.

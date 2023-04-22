@@ -1,39 +1,35 @@
 <template>
-  <h1>Hello {{ name }}</h1>
-  <div>{{ frameworks }}</div>
-  <ul>
-    <li v-for="frame in frameworks" v-bind:key="frame">{{ frame }}</li>
-  </ul>
-  <!-- 데이터양방향 바인딩 -->
-  <input type="text" v-model="name">
+  <div>
+    <h1 v-bind:id="dynamicId">Hello Title</h1>
+    <a v-bind:href="url">naver</a>
+    <!-- html의 속성을 바인딩하는 v-bind -->
+    <img v-bind:src="image.src" v-bind:alt="image.alt"/>
+  </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  components: {
-  },
+  name: "App",
   data() {
     return {
-      name: 'Mo-Greene',
-      frameworks: [
-        "React",
-        "Vue",
-        "Angular"
-      ]
+      dynamicId: "content",
+      url: "https://naver.com",
+      image: {
+        src: 'https://placeimg.com/100/100/any',
+        alt: 'random image'
+      }
     }
-  },
-}
+  }
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#title {
+  color: red;
+  background: yellow;
+}
+#content {
+  color: blue;
+  background: pink;
 }
 </style>
