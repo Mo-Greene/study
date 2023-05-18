@@ -1,16 +1,16 @@
 <template>
-  <User/>
+    <Todo/>
 </template>
 
 <script>
-import User from '@/components/User.vue'
+import User from '@/components/User/User.vue'
+import Todo from '@/components/Todo/Todo.vue'
 
 export default {
     name: "App",
-    data: () => ({
-        title: "Hello World",
-        count: 0
-    }),
-    components: { User }
+    components: { 
+        User,
+        Todo
+    }
 }
 </script>
