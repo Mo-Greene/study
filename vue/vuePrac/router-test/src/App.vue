@@ -1,26 +1,58 @@
 <template>
-  <div class="container">
-    <Header/>
-    <router-view></router-view>
-  </div>
+  <v-card>
+    <v-layout>
+      <v-navigation-drawer
+        v-model="drawer"
+        :rail="rail"
+        permanent
+        @click="rail = false"
+      >
+        <v-list-item
+          prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
+          title="John Leider"
+          nav
+        >
+          <template v-slot:append>
+            <v-btn
+              variant="text"
+              icon="mdi-chevron-left"
+              @click.stop="rail = !rail"
+            ></v-btn>
+          </template>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list density="compact" nav>
+          <v-list-item
+            prepend-icon="mdi-home-city"
+            title="Home"
+            value="home"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-account"
+            title="My Account"
+            value="account"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-account-group-outline"
+            title="Users"
+            value="users"
+          ></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+      <v-main style="height: 250px"></v-main>
+    </v-layout>
+  </v-card>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-
   export default {
-    name: "App",
-    components: {Header},
+    data() {
+      return {
+        drawer: true,
+        rail: true,
+      }
+    },
   }
 </script>
-
-<style>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-.container {text-align: center; margin-top: 10px;}
-.fa { padding : 5px; width: 30px; text-align: center;
-  text-decoration: none; margin: 5px 2px;}
-
-.fa-facebook { background: #3B5998; color: white; }
-.fa-youtube { background: #bb0000; color: white; }
-.fa-instagram { background: #125688; color: white; }
-</style>
