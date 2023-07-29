@@ -4,7 +4,7 @@ ec2 환경설정
 //설치방법
 https://unit-15.tistory.com/114
 //java corretto 11 버전 다운
-https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
+https://docs.aws.amazon.com/ko_kr/corretto/latest/corretto-11-ug/generic-linux-install.html
 
 
 ## mysql 설치(no rds)
@@ -17,6 +17,9 @@ https://repost.aws/ko/questions/QUsxBfYkiVROCI5SBnEcHGPA/a-connection-to-the-ecc
 
 https://repost.aws/questions/QUbI21xQGGSZuYHH3U8SIstQ/unable-to-connect-to-database-mysql-created-in-ec2-instance
 위 블로그에 나름 자세하게 적혀져있음
+
+## 포트포워딩
+https://velog.io/@jinseoit/ec2-port-forward
 
 
 ## RDS 설치
