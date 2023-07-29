@@ -15,6 +15,11 @@ EC2에서는 mysql을 다운받고 적용하려고 할때 회사에서와 똑같
 https://repost.aws/ko/questions/QUsxBfYkiVROCI5SBnEcHGPA/a-connection-to-the-ecc2-t2-micro-instance-could-not-be-established
 일단 같은 오류를 물어본 구글 질문 -> 맞지는 않는것 같다.
 
+https://repost.aws/questions/QUbI21xQGGSZuYHH3U8SIstQ/unable-to-connect-to-database-mysql-created-in-ec2-instance
+위 블로그에 나름 자세하게 적혀져있음
+
 
 RDS 설치
 https://velog.io/@nefertiri/AWS-RDS%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0
+
+보안그룹 설정 확인 필!
