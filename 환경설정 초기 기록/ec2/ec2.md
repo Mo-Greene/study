@@ -25,4 +25,7 @@ https://velog.io/@jinseoit/ec2-port-forward
 ## RDS 설치
 https://velog.io/@nefertiri/AWS-RDS%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0
 
+## EC2 timezone 설정
+https://velog.io/@banjjoknim/EC2-%EC%84%9C%EB%B2%84-%EC%8B%9C%EA%B0%84-%EB%AC%B8%EC%A0%9C
+
 ## 보안그룹 설정 확인 필!
